@@ -1,14 +1,4 @@
-import { exec } from 'child_process';
+import * as tools from './tools.js';
 
-
-const getNpmRoot = () => {
-	let r = '';
-	exec('npm root -g', (error, stdout, stderr) => {
-		r = stdout;
-	});
-	return r;
-};
-
-const npmRoot = getNpmRoot();
-
-console.log(npmRoot);
+const npmRoot = await tools.getNpmRoot();
+console.log(`The npm root is: ${npmRoot}`);
